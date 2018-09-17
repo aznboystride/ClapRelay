@@ -8,6 +8,10 @@ long detection_range = 0;
 
 boolean status_lights = false;
 
+void has_not_clapped() {
+  return num_of_clap == 0; 
+}
+
 void setup() {
   Serial.begin(9600);
   pinMode(sound_sensor, INPUT);
@@ -18,12 +22,12 @@ void loop() {
   int status_sensor = digitalRead(sound_sensor);
   if (status_sensor == 0)
   {
-      if(num_of_clap == 0)
+      if(has_not_clapped())
       {
          detection_range_start = detection_range = millis();
          num_of_clap++;
       }
-      else if(num_of_clap > 0 && millis() - detection_range >= 50)
+      else if(!has_not_clapped() && millis() - detection_range >= 50)
       {
         detection_range = millis();
         num_of_clap++;
