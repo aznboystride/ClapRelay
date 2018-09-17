@@ -8,7 +8,7 @@ long detection_range = 0;
 
 boolean status_lights = false;
 
-void has_not_clapped() {
+boolean has_not_clapped() {
   return num_of_clap == 0; 
 }
 
