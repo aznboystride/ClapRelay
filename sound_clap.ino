@@ -6,9 +6,9 @@ int num_of_clap = 0;
 long detection_range_start = 0;
 long detection_range = 0;
 
-boolean status_lights = false;
+bool status_lights = false;
 
-boolean has_not_clapped() {
+bool has_not_clapped() {
   return num_of_clap == 0; 
 }
 
